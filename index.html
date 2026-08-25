@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Dinheiro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Cabeçalho -->
+  <header class="topo">
+    <h1>Meu Dinheiro</h1>
+    <p>Controle simples dos seus ganhos e gastos.</p>
+    <p class="aviso-armazenamento" id="avisoArmazenamento">
+      Não foi possível acessar o armazenamento deste navegador. Suas transações podem não ser salvas ao recarregar a página.
+    </p>
+  </header>
+
+  <!-- Dashboard -->
+  <section class="dashboard">
+    <div class="cartao cartao-saldo">
+      <span class="cartao-rotulo">Saldo atual</span>
+      <span class="cartao-valor" id="valorSaldo">R$ 0,00</span>
+    </div>
+    <div class="cartao cartao-ganho">
+      <span class="cartao-rotulo">Total de ganhos</span>
+      <span class="cartao-valor" id="valorGanhos">R$ 0,00</span>
+    </div>
+    <div class="cartao cartao-gasto">
+      <span class="cartao-rotulo">Total de gastos</span>
+      <span class="cartao-valor" id="valorGastos">R$ 0,00</span>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section class="painel">
+    <h2 class="painel-titulo">Nova transação</h2>
+
+    <form id="formTransacao" class="formulario">
+
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao" placeholder="Ex.: Supermercado, Salário..." autocomplete="off" maxlength="80">
+      </div>
+
+      <div class="linha-campos">
+        <div class="campo">
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" placeholder="0,00" min="0" step="0.01">
+        </div>
+        <div class="campo">
+          <label for="data">Data</label>
+          <input type="date" id="data">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Tipo</label>
+        <div class="alternador-tipo">
+          <input type="radio" name="tipo" id="tipoGanho" value="ganho" checked>
+          <label for="tipoGanho" class="opcao-tipo opcao-ganho">Ganho</label>
+
+          <input type="radio" name="tipo" id="tipoGasto" value="gasto">
+          <label for="tipoGasto" class="opcao-tipo opcao-gasto">Gasto</label>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option value="Alimentação">Alimentação</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Contas">Contas</option>
+          <option value="Lazer">Lazer</option>
+          <option value="Saúde">Saúde</option>
+          <option value="Educação">Educação</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+
+      <div class="erro" id="erroFormulario">Preencha a descrição e um valor maior que zero.</div>
+
+      <button type="submit" class="botao-adicionar">Adicionar transação</button>
+    </form>
+  </section>
+
+  <!-- Histórico -->
+  <section class="painel">
+    <h2 class="painel-titulo">Histórico</h2>
+    <ul class="historico" id="historico"></ul>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
